@@ -1,0 +1,13 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#8b5cf6', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#22d3ee', 'secondaryColor': '#1a1a2e', 'tertiaryColor': '#0f0f1a'}}}%%
+C4Context
+    title Sistema de Contexto - Planificador de Tareas
+    
+    Person(user, "Usuario", "Persona individual que gestiona tareas")
+    System(taskPlanner, "Task Planner", "Aplicación full-stack para crear, editar y organizar tareas personales con notas")
+    SystemDb(sqlite, "SQLite Database", "Persistencia local de tareas y comentarios")
+    
+    Rel(user, taskPlanner, "Gestiona tareas")
+    Rel(taskPlanner, sqlite, "Almacena/recupera datos")
+    
+    UpdateRelStyle(user, taskPlanner, $textColor="#ffffff", $lineColor="#8b5cf6")
+    UpdateRelStyle(taskPlanner, sqlite, $textColor="#ffffff", $lineColor="#22d3ee")

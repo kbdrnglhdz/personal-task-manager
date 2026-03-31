@@ -1,0 +1,16 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#8b5cf6', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#22d3ee', 'secondaryColor': '#1a1a2e', 'tertiaryColor': '#0f0f1a'}}}%%
+C4Container
+    title Contenedores - Planificador de Tareas
+    
+    Person(user, "Usuario", "Persona individual")
+    
+    Container(frontend, "Frontend SPA", "React 19 + TypeScript + Vite", "Interfaz de usuario con glassmorphism dark mode")
+    Container(backend, "Backend API", "Express.js 5 + ES Modules", "API REST para gestión de tareas y comentarios")
+    ContainerDb(db, "SQLite Database", "better-sqlite3", "Persistencia de tareas y comentarios")
+    
+    Rel(user, frontend, "HTTP/REST", "localhost:5174")
+    Rel(frontend, backend, "fetch API", "localhost:3001/api")
+    Rel(backend, db, "SQL queries")
+    
+    UpdateRelStyle(frontend, backend, $textColor="#ffffff", $lineColor="#8b5cf6", $strokeStyle="dashed")
+    UpdateRelStyle(backend, db, $textColor="#ffffff", $lineColor="#22d3ee")

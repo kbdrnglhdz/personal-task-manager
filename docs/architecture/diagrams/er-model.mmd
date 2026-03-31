@@ -1,0 +1,17 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#8b5cf6', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#22d3ee', 'secondaryColor': '#1a1a2e', 'tertiaryColor': '#0f0f1a'}}}%%
+erDiagram
+    TASKS {
+        string id PK "UUID"
+        string title "NOT NULL"
+        int completed "0/1"
+        string created_at "ISO datetime"
+    }
+    
+    COMMENTS {
+        string id PK "UUID"
+        string task_id FK "NOT NULL"
+        string content "NOT NULL"
+        string created_at "ISO datetime"
+    }
+    
+    TASKS ||--o{ COMMENTS : "has"

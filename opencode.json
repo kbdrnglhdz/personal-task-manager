@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "sdd": {
+      "description": "Software Design Document - Gestión de especificaciones",
+      "template": "Comandos SDD disponibles:\n- /sdd init: Inicializa estructura de carpetas para especificaciones\n- /sdd validate <archivo>: Valida archivo de especificación\n- /sdd propose <descripcion>: Crea propuesta de cambio\n- /sdd apply <spec>: Aplica especificación y genera código\n\nUsa /sdd-init, /sdd-validate, /sdd-propose, o /sdd-apply directamente."
+    },
+    "sdd-init": {
+      "description": "Inicializa estructura de specs",
+      "agent": "sdd"
+    },
+    "sdd-validate": {
+      "description": "Valida archivo de especificación",
+      "agent": "sdd"
+    },
+    "sdd-propose": {
+      "description": "Crea propuesta de cambio",
+      "agent": "sdd"
+    },
+    "sdd-apply": {
+      "description": "Aplica especificación",
+      "agent": "sdd"
+    }
+  }
+}

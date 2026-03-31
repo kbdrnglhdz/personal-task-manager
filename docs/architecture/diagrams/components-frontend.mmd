@@ -1,0 +1,27 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#8b5cf6', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#22d3ee', 'secondaryColor': '#1a1a2e', 'tertiaryColor': '#0f0f1a'}}}%%
+C4Component
+    title Componentes Frontend - React Components
+    
+    Container(frontend, "Frontend", "React 19 SPA")
+    
+    Component(app, "App.tsx", "Root Component", "Orquesta useTasks, renderiza TaskForm y TaskList")
+    Component(taskForm, "TaskForm.tsx", "Form Component", "Input para crear nuevas tareas")
+    Component(taskList, "TaskList.tsx", "List Component", "Mapea tasks a TaskItem, estado vacío")
+    Component(taskItem, "TaskItem.tsx", "Item Component", "Muestra tarea + expand/collapse comments")
+    Component(commentList, "CommentList.tsx", "Comments Component", "Lista comentarios + input agregar")
+    Component(commentItem, "CommentItem.tsx", "Comment Component", "Contenido, fecha, botón eliminar")
+    
+    Component(hookTasks, "useTasks.ts", "Custom Hook", "Estado tasks, loading, error, CRUD operations")
+    Component(hookComments, "useComments.ts", "Custom Hook", "Estado comments por taskId, CRUD operations")
+    
+    Component(types, "task.ts", "TypeScript Types", "Task, Comment, NewTask, NewComment interfaces")
+    
+    Rel(app, taskForm, "usa")
+    Rel(app, taskList, "usa")
+    Rel(taskList, taskItem, "mapea")
+    Rel(taskItem, commentList, "contiene")
+    Rel(commentList, commentItem, "mapea")
+    Rel(taskItem, hookComments, "usa")
+    Rel(app, hookTasks, "usa")
+    Rel(hookComments, types, "tipos")
+    Rel(hookTasks, types, "tipos")

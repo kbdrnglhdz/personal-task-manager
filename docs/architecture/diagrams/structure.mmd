@@ -1,0 +1,50 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#8b5cf6', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#8b5cf6', 'lineColor': '#22d3ee', 'secondaryColor': '#1a1a2e', 'tertiaryColor': '#0f0f1a', 'fontFamily': 'Inter'}}}%%
+graph TD
+    subgraph Root["📁 fundamentos/"]
+        subgraph Backend["📁 backend/"]
+            B1["index.js"]
+            subgraph DB["📁 db/"]
+                D1["database.js"]
+            end
+            subgraph Routes["📁 routes/"]
+                R1["tasks.js"]
+                R2["comments.js"]
+            end
+            B_PKG["package.json"]
+        end
+        
+        subgraph Frontend["📁 frontend/"]
+            subgraph Src["📁 src/"]
+                A["App.tsx"]
+                CSS["index.css"]
+                subgraph Components["📁 components/"]
+                    TF["TaskForm.tsx"]
+                    TL["TaskList.tsx"]
+                    TI["TaskItem.tsx"]
+                    CL["CommentList.tsx"]
+                    CI["CommentItem.tsx"]
+                end
+                subgraph Hooks["📁 hooks/"]
+                    UT["useTasks.ts"]
+                    UC["useComments.ts"]
+                end
+                subgraph Types["📁 types/"]
+                    T["task.ts"]
+                end
+            end
+            F_PKG["package.json"]
+        end
+        
+        Docs["📁 docs/"]
+        Config["📄 ecosystem.config.js"]
+    end
+    
+    A --> Components
+    A --> Hooks
+    TI --> CL
+    CL --> CI
+    UT --> Types
+    UC --> Types
+    B1 --> Routes
+    B1 --> DB
+    Routes --> DB
