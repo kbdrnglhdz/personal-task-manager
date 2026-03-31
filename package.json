@@ -1,0 +1,22 @@
+{
+  "name": "fundamentos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pm2 start ecosystem.config.js && pm2 logs",
+    "dev:standalone": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:backend": "pm2 start backend",
+    "dev:frontend": "pm2 start frontend",
+    "pm2:stop": "pm2 delete all && pm2 kill",
+    "pm2:restart": "pm2 restart all",
+    "pm2:status": "pm2 list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
