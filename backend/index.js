@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import tasksRouter from './routes/tasks.js';
 import commentsRouter from './routes/comments.js';
+import usersRouter from './routes/users.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api', tasksRouter);
 app.use('/api', commentsRouter);
+app.use('/api/users', usersRouter);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', message: 'Backend is running' });
